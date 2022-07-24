@@ -1,6 +1,4 @@
-# bookticket
-
-A new Flutter project.
+# Ticket Booking  Flutter App
 
 ## Getting Started
 
