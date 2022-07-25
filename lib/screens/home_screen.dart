@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
 
-import 'package:bookticket/screens/ticket_view.dart';
+import 'package:bookticket/views/hotel_view.dart';
+import 'package:bookticket/views/ticket_view.dart';
+import 'package:bookticket/utils/app_info_list.dart';
 import 'package:bookticket/utils/app_styles.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
@@ -93,12 +95,43 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Gap(20),
+            Gap(15),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.only(left: 20),
               child: Row(
-                children: [TicketView(), TicketView()],
+                children: ticketList
+                    .map((ticket) => TicketView(ticket: ticket))
+                    .toList(),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "UpComing Flights",
+                    style: Styles.headlineStyle2,
+                  ),
+                  InkWell(
+                    // onTap: () => {print("You Tap it.")},
+                    child: Text(
+                      "View All",
+                      style:
+                          Styles.textStyle.copyWith(color: Styles.primaryColor),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Gap(15),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.only(left: 20),
+              child: Row(
+                children:
+                    hotelList.map((hotel) => HotelView(hotel: hotel)).toList(),
               ),
             ),
           ],

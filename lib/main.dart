@@ -1,4 +1,4 @@
-import 'package:bookticket/screens/bottom_bar.dart';
+import 'package:bookticket/bottom/bottom_bar.dart';
 import 'package:bookticket/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
